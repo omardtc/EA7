@@ -1,27 +1,113 @@
-#container {
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16px;
+  background: linear-gradient(to bottom, #f0f8ff, #e6f7ff);
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+ion-header {
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  background-color: #0078d4;
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+form {
+  width: 100%;
+  max-width: 600px;
+  background-color: lightgray;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+ion-item {
+  margin-bottom: 12px;
 }
 
-#container a {
-  text-decoration: none;
+ion-label {
+  font-weight: bold;
+  color: #333;
+}
+
+ion-input {
+  --background-color: lightgreen;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+ion-checkbox {
+  margin-right: 8px;
+}
+
+ion-button {
+  width: 100%;
+  font-weight: bold;
+  margin-top: 12px;
+
+  &[color="danger"] {
+    background: #e63946;
+    --background-activated: #d62839;
+  }
+
+  &[color="primary"] {
+    background: #0078d4;
+    --background-activated: #005bb5;
+  }
+}
+
+ion-card {
+  width: 100%;
+  max-width: 800px;
+  background-color: lightgreen;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+ion-card-title {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #0078d4;
+}
+
+ion-grid {
+  width: 100%;
+}
+
+ion-row {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+
+  &:first-of-type {
+    background-color: #0078d4;
+    color: white;
+    font-weight: bold;
+  }
+
+  ion-col {
+    text-align: center;
+    padding: 8px 4px;
+  }
+
+  ion-button {
+    margin: 0 4px;
+    font-size: 0.8rem;
+  }
+}
+
+.empty-message {
+  font-size: 1rem;
+  color: #777;
+  text-align: center;
+  margin-top: 20px;
 }

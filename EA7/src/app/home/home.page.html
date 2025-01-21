@@ -1,20 +1,90 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+  <ion-title>Lista de Usuarios</ion-title>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <form [formGroup]="usuario" (ngSubmit)="guardarDatos()">
+    <ion-item>
+      <ion-label>Nombre:</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+    <ion-label color="danger" *ngIf="usuario.controls.nombre.errors?.['required'] && (usuario.touched || usuario.dirty)">
+      * El nombre es obligatorio
+    </ion-label>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-item>
+      <ion-label>Apellido:</ion-label>
+      <ion-input formControlName="apellido"></ion-input>
+    </ion-item>
+    <ion-label color="danger" *ngIf="usuario.controls.apellido.errors?.['required'] && (usuario.touched || usuario.dirty)">
+      * El apellido es obligatorio
+    </ion-label>
+
+    <ion-item>
+      <ion-label>Email:</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <ion-label color="danger" *ngIf="usuario.controls.email.errors?.['email'] && (usuario.touched || usuario.dirty)">
+      * El email no es válido
+    </ion-label>
+
+    <ion-item>
+      <ion-label>Edad:</ion-label>
+      <ion-input formControlName="edad"></ion-input>
+    </ion-item>
+    <ion-label color="danger" *ngIf="usuario.controls.edad.errors?.['min'] && (usuario.touched || usuario.dirty)">
+      * La edad mínima es 18
+    </ion-label>
+
+    <ion-item>
+      <ion-label>Username:</ion-label>
+      <ion-input formControlName="username"></ion-input>
+    </ion-item>
+    <ion-label color="danger" *ngIf="usuario.controls.username.errors?.['required'] && (usuario.touched || usuario.dirty)">
+      * El username es obligatorio
+    </ion-label>
+
+    <ion-item>
+      <ion-checkbox slot="start" formControlName="aceptaTerminos"></ion-checkbox>
+      <ion-label>Acepto los términos y condiciones</ion-label>
+    </ion-item>
+    <ion-label color="danger" *ngIf="usuario.controls.aceptaTerminos.errors?.['required'] && (usuario.touched || usuario.dirty)">
+      * Debes aceptar los términos y condiciones
+    </ion-label>
+
+    <p class="ion-text-center">
+      <ion-button type="submit" [disabled]="!usuario.valid">
+        {{ indiceEdicion === null ? 'Guardar' : 'Actualizar' }}
+      </ion-button>
+    </p>
+  </form>
+
+  <ion-card *ngIf="usuarios.length > 0">
+    <ion-card-header>
+      <ion-card-title>Usuarios Registrados</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col><strong>Nombre</strong></ion-col>
+          <ion-col><strong>Apellido</strong></ion-col>
+          <ion-col><strong>Email</strong></ion-col>
+          <ion-col><strong>Edad</strong></ion-col>
+          <ion-col><strong>Username</strong></ion-col>
+          <ion-col><strong>Acciones</strong></ion-col>
+        </ion-row>
+        <ion-row *ngFor="let usuario of usuarios; let i = index">
+          <ion-col>{{ usuario.nombre }}</ion-col>
+          <ion-col>{{ usuario.apellido }}</ion-col>
+          <ion-col>{{ usuario.email }}</ion-col>
+          <ion-col>{{ usuario.edad }}</ion-col>
+          <ion-col>{{ usuario.username }}</ion-col>
+          <ion-col>
+            <ion-button color="primary" (click)="editarUsuario(i)">Editar</ion-button>
+            <ion-button color="danger" (click)="eliminarUsuario(i)">Eliminar</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
