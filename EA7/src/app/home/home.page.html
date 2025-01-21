@@ -1,20 +1,55 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<div style="height: 100vh; background-color: rgba(10, 175, 240, 0.308);">
+  <br>
+  <h1 style="text-align: center;"><b>AGENDA</b></h1><br>
+    <table>
+      <tr>
+        <th><ion-label>Nombre: </ion-label><ion-label style="color: red;"><b>*Obligatorio</b></ion-label></th>
+        <th> <ion-label>Descripción: </ion-label></th>
+        <th><ion-label>Fecha: </ion-label><ion-label style="color: red;"><b>*Obligatorio</b></ion-label></th>
+      </tr>
+      <tbody>
+  
+        <tr>
+          <td><ion-input [(ngModel)]="nombre.value" placeholder="  ___________________" class="answer"></ion-input><br></td>
+          <td><ion-input [(ngModel)]="descripcion.value" placeholder="  __________________" class="answer"></ion-input><br></td>
+          <td><ion-input [(ngModel)]="fecha.value" type="datetime-local" class="answer"></ion-input><br></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="text-align: center;">
+      <br>
+      <br>
+      <br>
+      <ion-button  shape="round" style="width: 10%;" (click)="NewTarea()">Añadir tarea</ion-button>
+    </div>
+    <br><br><br>
+    <div class="container" style="background-color: rgba(10, 175, 240, 0.308);">
+      <table>
+        
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>Estado</th>
+          </tr>
+        
+        <tbody>
+          <tr *ngFor="let tarea of tareas" [ngClass]="{'completada': tarea.completada, 'incompleta': !tarea.completada}">
+            <td>{{tarea.nombre}}</td>
+            <td>{{tarea.descripcion}}</td>
+            <td>{{tarea.fecha}}</td>
+            <td>
+              <ion-checkbox [(ngModel)]="tarea.completada" style="width: 140px;"></ion-checkbox>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</ion-content>
+  
+  
+  
+  
+  
+  
