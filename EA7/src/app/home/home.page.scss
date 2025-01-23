@@ -1,73 +1,67 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+/* Estilos generales */
+body {
+  font-family: sans-serif;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+/* Estilos para el contenedor principal */
+.container {
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
-.completada {
-  background-color: rgb(188, 217, 109);
-  color: white;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-style:italic;
-}
-.incompleta {
-  background-color: white;
-  color: black;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-style: normal;
-}
-
+/* Estilos para la tabla */
 table {
-  width: 90%;
+  width: 100%;
   border-collapse: collapse;
-  margin: 0 auto; /* Esto centra la tabla horizontalmente */
+  margin-top: 20px;
 }
-
 
 th, td {
+  border: 1px solid black;
   padding: 10px;
   text-align: left;
-  border: 2px solid black;
 }
 
 th {
-  background-color: rgb(201, 123, 123);
-  font-weight: bold;
-}
-
-.answer{
-  width: 200px;
   background-color: #f2f2f2;
-  border-width: 2px;
-  border-style: groove;
-  border-color: black;
-  margin: 0 auto;
 }
 
-h1 {
-  color: darkblue;
+/* Estilos para las etiquetas */
+ion-label {
   font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Estilos para los campos obligatorios */
+ion-label[style*="color: red;"] {
+  color: red;
+}
+
+/* Estilos para los campos de entrada */
+.answer {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: white;
+}
+
+/* Estilos para el botón */
+ion-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Estilos para las filas completadas e incompletas */
+.completada {
+  background-color: lightgreen;
+}
+
+.incompleta {
+  background-color: lightcoral;
 }

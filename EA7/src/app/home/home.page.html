@@ -1,12 +1,16 @@
 
 <div style="height: 100vh; background-color: rgba(10, 175, 240, 0.308);">
   <br>
-  <h1 style="text-align: center;"><b>AGENDA</b></h1><br>
+  <h1 style="text-align: center;"><b>AGENDA DE EVENTOS</b></h1><br>
     <table>
       <tr>
-        <th><ion-label>Nombre: </ion-label><ion-label style="color: red;"><b>*Obligatorio</b></ion-label></th>
+        <th><ion-label>Nombre del evento: </ion-label><ion-label style="color: red;"><b>*Obligatorio</b></ion-label></th>
         <th> <ion-label>Descripción: </ion-label></th>
-        <th><ion-label>Fecha: </ion-label><ion-label style="color: red;"><b>*Obligatorio</b></ion-label></th>
+        <th><ion-label>Fecha de inicio: </ion-label><ion-label style="color: red;"><b>*Obligatorio</b></ion-label></th>
+        <th><ion-label>Fecha de fin: </ion-label><ion-label style="color: red;"><b>*Obligatorio</b></ion-label></th>
+        <th><ion-label>Ubicación: </ion-label><ion-label style="color: red;"><b>*Obligatorio</b></ion-label></th>
+        <th><ion-label>Nombre del encargado: </ion-label></th>
+        <th><ion-label>Teléfono del encargado: </ion-label></th>
       </tr>
       <tbody>
   
@@ -14,6 +18,10 @@
           <td><ion-input [(ngModel)]="nombre.value" placeholder="  ___________________" class="answer"></ion-input><br></td>
           <td><ion-input [(ngModel)]="descripcion.value" placeholder="  __________________" class="answer"></ion-input><br></td>
           <td><ion-input [(ngModel)]="fecha.value" type="datetime-local" class="answer"></ion-input><br></td>
+          <td><ion-input [(ngModel)]="fechafin.value" type="datetime-local" class="answer"></ion-input><br></td>
+          <td><ion-input [(ngModel)]="ubicacion.value" placeholder="  ___________________" class="answer"></ion-input><br></td>
+          <td><ion-input [(ngModel)]="encargado.value" placeholder="  ___________________" class="answer"></ion-input><br></td>
+          <td><ion-input [(ngModel)]="telefono.value" placeholder="  ___________________" class="answer"></ion-input><br></td>
         </tr>
       </tbody>
     </table>
@@ -28,10 +36,14 @@
       <table>
         
           <tr>
-            <th>Nombre</th>
+            <th>Nombre del evento</th>
             <th>Descripción</th>
-            <th>Fecha</th>
-            <th>Estado</th>
+            <th>Fecha de inicio</th>
+            <th>Fecha de fin</th>
+            <th>Ubicación</th>
+            <th>Nombre del encargado</th>
+            <th>Teléfono del encargado</th>
+            <th>Confirmación del evento</th>
           </tr>
         
         <tbody>
@@ -39,6 +51,10 @@
             <td>{{tarea.nombre}}</td>
             <td>{{tarea.descripcion}}</td>
             <td>{{tarea.fecha}}</td>
+            <td>{{tarea.fechafin}}</td>
+            <td>{{tarea.ubicacion}}</td>
+            <td>{{tarea.encargado}}</td>
+            <td>{{tarea.telefono}}</td>
             <td>
               <ion-checkbox [(ngModel)]="tarea.completada" style="width: 140px;"></ion-checkbox>
             </td>
