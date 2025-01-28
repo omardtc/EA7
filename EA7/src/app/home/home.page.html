@@ -9,12 +9,28 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">NASA Image</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content class="ion-padding">
+  <ng-container *ngIf="imageData; else loading">
+    <ion-card>
+      <img [src]="imageData.url" alt="NASA Image of The Day"/>
+      <ion-card-header>
+        <ion-card-title>{{imageData.title}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>{{imageData.explanation}}</p>
+        <p><strong>Date:</strong>{{imageData.date}}</p>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+  <ng-template #loading>
+    <ion-spinner name="crescent"></ion-spinner>
+  </ng-template>
+
+</ion-content>
 </ion-content>
