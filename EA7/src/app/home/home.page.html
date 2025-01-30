@@ -13,8 +13,26 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  
+    <ion-content class="ion-padding">
+
+
+      <ng-container *ngIf="listPokemones;else loading">
+        <ion-card 
+        *ngFor="let item of listPokemones;index as i"
+        (click)="handleDetail(item.url)"
+        >
+          <ion-card-header>
+            <ion-card-title>
+              {{item.name}}
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ng-container>
+
+      <ng-template #loading>
+        <ion-spinner name="crescent">
+        </ion-spinner>
+      </ng-template>
+    </ion-content>
 </ion-content>
