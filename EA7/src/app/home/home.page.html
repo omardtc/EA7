@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>NASA Image</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,24 +11,29 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content class="ion-padding">
-  <ng-container *ngIf="imageData; else loading">
-    <ion-card>
-      <img [src]="imageData.url" alt="NASA Image of The Day"/>
-      <ion-card-header>
-        <ion-card-title>{{imageData.title}}</ion-card-title>
-      </ion-card-header>
+  <ion-content class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Select Date</ion-label>
+      <ion-input type="date" [(ngModel)]="selectedDate"></ion-input>
+    </ion-item>
+    <ion-button expand="full" (click)="fetchImage()">Get Image</ion-button>
+    
+    <ng-container *ngIf="imageData; else loading">
+      <ion-card>
+        <img [src]="imageData.url" alt="NASA Image of The Day" />
+        <ion-card-header>
+          <ion-card-title>{{imageData.title}}</ion-card-title>
+        </ion-card-header>
 
-      <ion-card-content>
-        <p>{{imageData.explanation}}</p>
-        <p><strong>Date:</strong>{{imageData.date}}</p>
-      </ion-card-content>
-    </ion-card>
-  </ng-container>
+        <ion-card-content>
+          <p>{{imageData.explanation}}</p>
+          <p><strong>Date:</strong> {{imageData.date}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
 
-  <ng-template #loading>
-    <ion-spinner name="crescent"></ion-spinner>
-  </ng-template>
-
-</ion-content>
+    <ng-template #loading>
+      <ion-spinner name="crescent"></ion-spinner>
+    </ng-template>
+  </ion-content>
 </ion-content>

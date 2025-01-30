@@ -8,15 +8,16 @@ import { NasaService } from '../nasa.service';
   standalone: false,
 })
 export class HomePage {
-
   imageData: any;
+  selectedDate: string = new Date().toISOString().split('T')[0];
 
   constructor(private nasaService: NasaService) {}
 
-  ngOnInit(){
-    this.nasaService.getImageOfTheDay().subscribe((data)=>{
-      this.imageData = data;
-    });
+  fetchImage() {
+    if (this.selectedDate) {
+      this.nasaService.getImageByDate(this.selectedDate).subscribe((data) => {
+        this.imageData = data;
+      });
+    }
   }
-
 }
