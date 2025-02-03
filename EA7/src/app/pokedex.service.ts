@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PokedexService {
   private apiUrl="https://pokeapi.co/api/v2/pokemon/";
-  private limit=50;
+  private limit=151;
   private offset=0;
   constructor(private http: HttpClient) { }
 
@@ -17,6 +17,6 @@ export class PokedexService {
   }
 
   getDetailPokemon(urlPokemon:any):Observable<any>{
-    return this.http.get(urlPokemon)
+    return this.http.get(urlPokemon);
   }
 }
