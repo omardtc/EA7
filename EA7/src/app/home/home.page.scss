@@ -1,31 +1,50 @@
-
-
 ion-toolbar {
-  --background: rgb(211, 125, 211); 
-  --color: white; 
+  --background: rgb(211, 125, 211);
+  --color: white;
 }
 
 ion-title {
   font-size: 24px;
   font-weight: bold;
   text-transform: capitalize;
+  text-align: center;
 }
 
 ion-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   padding: 10px;
   background-color: purple;
 }
 
+.pokedex-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); // EXACTAMENTE 7 columnas
+  gap: 15px;
+  max-width: 2000px; // Ajusta el ancho máximo para acomodar 7 columnas
+  max-height: 10000px;
+  width: 100%;
+  justify-content: center;
+}
+
 ion-card {
-  margin: 10px 0;
   background-color: purple;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s;
+  padding: 10px;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 ion-card-header {
-  background-color: #1976d2; 
-  color: white; 
+  background-color: purple;
+  color: white;
   border-radius: 10px 10px 0 0;
   padding: 10px;
 }
@@ -34,11 +53,11 @@ ion-card-title {
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  color: white; 
+  color: white;
 }
 
 ion-card-title:hover {
-  color: lightblue; 
+  color: lightblue;
 }
 
 ion-card-content {
@@ -47,16 +66,16 @@ ion-card-content {
   color: white;
 }
 
-
+ion-img {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  display: block;
+}
 
 h3 {
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
   color: white;
-}
-
-ion-card-header {
-  background-color: purple; 
-  color: white; 
 }
