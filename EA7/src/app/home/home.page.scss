@@ -3,6 +3,10 @@ ion-toolbar {
   --color: white;
 }
 
+ion-content{
+  --background: purple;
+}
+
 ion-title {
   font-size: 24px;
   font-weight: bold;
@@ -30,7 +34,7 @@ ion-content {
 }
 
 ion-card {
-  background-color: purple;
+  background-color: rgb(211, 125, 211);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
