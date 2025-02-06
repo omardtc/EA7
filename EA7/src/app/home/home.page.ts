@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { JokesService } from '../jokes.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,19 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class HomePage {
+  
+  jokeData: any;
+  jokeCat: any;
+ 
+  constructor(private jokeService: JokesService) {}
 
-  constructor() {}
+  ngOnInit(){
+    this.jokeService.getJokes().subscribe((data)=>{
+      this.jokeData = data;
+    })
+    this.jokeService.getCategories().subscribe((data)=>{
+      this.jokeCat = data;
+    })
+  }
 
 }
