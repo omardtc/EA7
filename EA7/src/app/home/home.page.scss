@@ -25,3 +25,50 @@
 #container a {
   text-decoration: none;
 }
+
+
+
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+  margin: 0 auto; /* Esto centra la tabla horizontalmente */
+}
+
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 2px solid black;
+}
+
+th {
+  background-color: rgb(201, 123, 123);
+  font-weight: bold;
+}
+
+.answer{
+  width: 200px;
+  background-color: #f2f2f2;
+  border-width: 2px;
+  border-style: groove;
+  border-color: black;
+  margin: 0 auto;
+}
+
+h1 {
+  color: darkblue;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h3{
+  color: purple;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+ion-content{
+  --background: lightgray;
+}

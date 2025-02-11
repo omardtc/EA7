@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Examen 1er Parcial
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,85 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Examen 1er Parcial</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div>
+    <br>
+    <strong style="text-align: center;">Componente</strong>
+    <br>
+    <a routerLink="/formulario" class="btn btn-primary" style="text-align: center;">Ir allá</a>
   </div>
+
+<h3>Quote of the Day</h3>
+<ng-container *ngIf="quote; else loading">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{quote.quote}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{quote.author}}</p>
+    </ion-card-content>
+  </ion-card>
+</ng-container>
+
+  <h1 style="text-align: center;"><b>Formulario de Películas</b></h1>
+<table>
+  <tr>
+    <th><ion-label>Nombre: </ion-label><ion-label style="color: red;"><b>Obligatorio</b></ion-label></th>
+    <th><ion-label>Año: </ion-label><ion-label style="color: red;"><b>Obligatorio</b></ion-label></th>
+    <th><ion-label>Productor: </ion-label><ion-label style="color: red;"><b>Obligatorio</b></ion-label></th>
+    <th><ion-label>Casa: </ion-label><ion-label style="color: red;"><b>Obligatorio</b></ion-label></th>
+    <th><ion-label>Protagonista: </ion-label><ion-label style="color: red;"><b>Obligatorio</b></ion-label></th>
+  </tr>
+
+  <tbody>
+    <tr>
+      <td><ion-input [(ngModel)]="peli.value" placeholder="________________"></ion-input><br></td>
+      <td><ion-input [(ngModel)]="year.value" placeholder="________________"></ion-input><br></td>
+      <td><ion-input [(ngModel)]="productor.value" placeholder="________________"></ion-input><br></td>
+      <td><ion-input [(ngModel)]="casa.value" placeholder="________________"></ion-input><br></td>
+      <td><ion-input [(ngModel)]="prota.value" placeholder="________________"></ion-input><br></td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="text-align: center;">
+  <br>
+  <br>
+  <br>
+  <ion-button (click)="NewMovie()">Añadir película</ion-button>
+</div>
+<br>
+<br>
+<br>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Año</th>
+    <th>Productor</th>
+    <th>Casa</th>
+    <th>Protagonista</th>
+  </tr>
+
+  <tbody>
+    <tr *ngFor="let dato of datos">
+      <td>{{dato.peli}}</td>
+      <td>{{dato.year}}</td>
+      <td>{{dato.productor}}</td>
+      <td>{{dato.casa}}</td>
+      <td>{{dato.prota}}</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<br>
+
 </ion-content>
+
+<ng-template #loading>
+  <ion-spinner name="crescent"></ion-spinner>
+</ng-template>
+<!--Hecho por Omar Del Toro Covarrubias-->
