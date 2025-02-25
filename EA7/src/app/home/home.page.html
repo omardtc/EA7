@@ -20,5 +20,23 @@
     <a routerLink="/create">Registrarse</a> |
     <a routerLink="/password">¿Olvidaste tu contraseña?</a>
   </div>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Ingresa tu idea</ion-label>
+    <ion-input [(ngModel)]="ideaPrompt" placeholder="Por ejemplo, genera ideas para un startup de tecnología"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="generateIdea()">Generar idea</ion-button>
+
+  <ion-card *ngIf="generatedIdea">
+    <ion-card-header>
+      <ion-card-title>Idea generada</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ generatedIdea }}
+      </ion-card-content>
+  </ion-card>
+</ion-content>
   
 </ion-content>
