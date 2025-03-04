@@ -15,13 +15,14 @@ import { environment } from '../environments/environment';
 
 import { FormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
-    AppRoutingModule, RouterModule, FormsModule, CreateComponent
+    AppRoutingModule, RouterModule, FormsModule, CreateComponent, LoginComponent
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
