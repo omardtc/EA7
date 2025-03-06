@@ -16,13 +16,14 @@ import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { LoginComponent } from './login/login.component';
+import { PasswordComponent } from './password/password.component';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
-    AppRoutingModule, RouterModule, FormsModule, CreateComponent, LoginComponent
+    AppRoutingModule, RouterModule, FormsModule, CreateComponent, LoginComponent, PasswordComponent
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
