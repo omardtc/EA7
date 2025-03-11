@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>OpenAi</ion-title>
+    <ion-title>Gestión de Tareas</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="logout()">
         <ion-icon name="log-out-outline"></ion-icon> Cerrar Sesión
@@ -12,29 +12,36 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">OpenAi</ion-title>
+      <ion-title size="large">Gestión de Tareas</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <h1>Bienvenido a tu propia IA</h1>
-    <p>Empieza una conversación</p>
+    <h1>Agregar Nueva Tarea</h1>
   </div>
 
   <ion-item>
-    <ion-label position="floating">Ingresa tu idea</ion-label>
-    <br>
-    <ion-input [(ngModel)]="ideaPrompt" placeholder="Por ejemplo, genera ideas para un startup de tecnología"></ion-input>
+    <ion-label position="floating">Título de la tarea</ion-label>
+    <ion-input [(ngModel)]="taskTitle" placeholder="Ejemplo: Comprar suministros"></ion-input>
   </ion-item>
 
-  <ion-button expand="full" (click)="generateIdea()">Generar idea</ion-button>
+  <ion-item>
+    <ion-label position="floating">Descripción</ion-label>
+    <ion-textarea [(ngModel)]="taskDescription" placeholder="Ejemplo: Comprar papel y tinta para la impresora"></ion-textarea>
+  </ion-item>
 
-  <ion-card *ngIf="generatedIdea">
-    <ion-card-header>
-      <ion-card-title>Idea generada</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      {{ generatedIdea }}
-    </ion-card-content>
-  </ion-card>
+  <ion-button expand="full" (click)="addTask()">Agregar Tarea</ion-button>
+
+  <h2>Tareas Pendientes</h2>
+  <ion-list>
+    <ion-item *ngFor="let task of taskList$ | async">
+      <ion-label>
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.description }}</p>
+      </ion-label>
+      <ion-button color="danger" (click)="deleteTask(task.id!)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>      
+    </ion-item>
+  </ion-list>
 </ion-content>
