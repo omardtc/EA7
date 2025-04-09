@@ -15,6 +15,11 @@
 
   <div id="container">
     <strong>Ready to create an app?</strong>
+    <ion-button expand="full" (click)="takePhoto()">Tomar foto</ion-button>
+    <ion-button expand="full" (click)="logDeviceInfo()">Info del dispositivo</ion-button>
+    <ion-button expand="full" (click)="logBatteryInfo()">Batería del dispositivo</ion-button>
+    <ion-button expand="full" (click)="logCurrentNetworkStatus()">Estatus de la red</ion-button>
+    <ion-button expand="full" (click)="logCurrentPosition()">Obtener ubicación</ion-button>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
 </ion-content>
